@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from '../components/icons/Icon';
 import * as Animatable from 'react-native-animatable';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { RootStackParamList } from '../navigation/AppNavigator';
@@ -117,7 +117,10 @@ const ResultScreen: React.FC<Props> = ({ navigation }) => {
         onPress={() => navigation.navigate('RideDetails', { rideId: item.id })}
         activeOpacity={0.9}
       >
-        <View style={styles.cardBackground}>
+        <LinearGradient
+          colors={['#1E1E2E', '#2D2D44']}
+          style={styles.cardBackground}
+        >
           {/* Card Header */}
           <View style={styles.cardHeader}>
             <View style={[styles.typeBadge, { backgroundColor: getTypeColor(item.type) }]}>
@@ -191,7 +194,7 @@ const ResultScreen: React.FC<Props> = ({ navigation }) => {
               <Icon name="arrow-right" size={20} color="#FFF" />
             </TouchableOpacity>
           </View>
-        </View>
+        </LinearGradient>
       </TouchableOpacity>
     </Animatable.View>
   );
@@ -333,7 +336,6 @@ const styles = StyleSheet.create({
   },
   cardBackground: {
     padding: 20,
-    backgroundColor: 'rgba(255, 255, 255, 0.05)',
     borderRadius: 25,
   },
   cardHeader: {
