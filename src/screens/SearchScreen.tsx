@@ -40,9 +40,19 @@ const SearchScreen: React.FC<Props> = ({ navigation }) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header */}
         <Animatable.View animation="fadeInDown" style={styles.header}>
+          <View style={styles.flexRow}>
+
           <TouchableOpacity onPress={() => navigation.goBack()} style={styles.backButton}>
             <Icon name="arrow-left" size={24} color="#FFF" />
           </TouchableOpacity>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Profile', { driverId: '123' })}>
+            <Icon name="account-circle" size={24} color="#FFF" />
+          </TouchableOpacity>
+          </View>
+
+
+
           <Text style={styles.title}>Plan Your Journey</Text>
           <Text style={styles.subtitle}>Find the perfect ride</Text>
         </Animatable.View>
@@ -425,5 +435,10 @@ const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 18,
     fontWeight: '600',
+  },
+  flexRow: {    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
   },
 });
